@@ -477,17 +477,10 @@ function saveToDrive(){
       showSyncStatus('⚠️ Solo guardado local','#E67E22');
     });
   }else{
-    var boundary='gym_boundary_x7';
-    var meta={name:FILE_NAME,mimeType:'application/json'};
-    var body='--'+boundary+'
-Content-Type: application/json
-
-'+JSON.stringify(meta)+'
---'+boundary+'
-Content-Type: application/json
-
-'+content+'
---'+boundary+'--';
+    var boundary='gym_bndry';
+    var meta=JSON.stringify({name:FILE_NAME,mimeType:'application/json'});
+    var delim='\r\n';
+    var body='--'+boundary+delim+'Content-Type: application/json'+delim+delim+meta+delim+'--'+boundary+delim+'Content-Type: application/json'+delim+delim+content+'\r\n--'+boundary+'--';
     gapi.client.request({
       path:'https://www.googleapis.com/upload/drive/v3/files',
       method:'POST',
@@ -496,9 +489,9 @@ Content-Type: application/json
       body:body
     }).then(function(r){
       driveFileId=r.result.id;
-      showSyncStatus('✅ Guardado en Drive','#1D9E75');
+      showSyncStatus('Guardado en Drive','#1D9E75');
     }).catch(function(){
-      showSyncStatus('⚠️ Solo guardado local','#E67E22');
+      showSyncStatus('Solo guardado local','#E67E22');
     });
   }
 }
