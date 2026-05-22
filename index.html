@@ -419,7 +419,14 @@ function tryAutoConnect(){
 }
 
 function connectDrive(){
-  if(!gapiReady||!gisReady){showSyncStatus('Cargando librería...','#888');return;}
+  if(!gapiReady||!gisReady){
+    showSyncStatus('Cargando... intentá de nuevo en 3 segundos','#888');
+    setTimeout(function(){
+      if(gapiReady&&gisReady) tokenClient.requestAccessToken({prompt:'consent'});
+      else showSyncStatus('Error al cargar Drive. Recargá la página.','#E74C3C');
+    },3000);
+    return;
+  }
   tokenClient.requestAccessToken({prompt:'consent'});
 }
 
@@ -1014,7 +1021,16 @@ function toggleST(){stRun=!stRun;document.getElementById('st-btn').textContent=s
 function resetST(){clearInterval(stI);stS=0;stRun=false;document.getElementById('st-disp').textContent='00:00:00';document.getElementById('st-btn').textContent='▶ INICIAR';}
 
 // -- INIT --
-load();renderHdr();renderWkGrid();renderDay();updC();updDots();updLbl();
+load();
+renderHdr();renderWkGrid();renderDay();updC();updDots();updLbl();
+var _da=0;
+function _tryDrive(){
+  _da++;
+  if(gapiReady&&gisReady){tryAutoConnect();}
+  else if(_da<40){setTimeout(_tryDrive,500);}
+  else{showSyncStatus('Drive no disponible -- datos locales','#E67E22');}
+}
+setTimeout(_tryDrive,1000);
 </script>
 </div>
 </body>
