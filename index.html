@@ -136,8 +136,6 @@ textarea.inp{resize:vertical;min-height:60px}
 .comp-fail{background:#FCEBEB;color:#a32d2d}
 .comp-partial{background:#FAEEDA;color:#7C4700}
 </style>
-<script src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-<script src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </head>
 <body>
 <div class="app">
@@ -1016,15 +1014,31 @@ function resetST(){clearInterval(stI);stS=0;stRun=false;document.getElementById(
 // -- INIT --
 load();
 renderHdr();renderWkGrid();renderDay();updC();updDots();updLbl();
+
+// Poll for Google libraries and init them manually
 var _da=0;
 function _tryDrive(){
   _da++;
-  if(gapiReady&&gisReady){tryAutoConnect();}
-  else if(_da<40){setTimeout(_tryDrive,500);}
-  else{showSyncStatus('Drive no disponible -- datos locales','#E67E22');}
+  // Try to init gapi if loaded but not ready
+  if(typeof gapi!=='undefined'&&!gapiReady){
+    gapiLoaded();
+  }
+  // Try to init gis if loaded but not ready
+  if(typeof google!=='undefined'&&typeof google.accounts!=='undefined'&&!gisReady){
+    gisLoaded();
+  }
+  if(gapiReady&&gisReady){
+    // both ready, autoconnect handled by gisLoaded
+  } else if(_da<60){
+    setTimeout(_tryDrive,500);
+  } else {
+    showSyncStatus('Drive no disponible -- datos locales','#E67E22');
+  }
 }
-setTimeout(_tryDrive,1000);
+setTimeout(_tryDrive,500);
 </script>
 </div>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
 </body>
 </html>
