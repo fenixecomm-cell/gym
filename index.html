@@ -7,17 +7,17 @@
 <title>Gym — Martin Brandán</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;padding:0;max-width:520px;margin:0 auto;background:#EEF4F1;color:#111;min-height:100vh}
+body{font-family:system-ui,-apple-system,sans-serif;padding:0;max-width:520px;margin:0 auto;background:#111;color:#eee;min-height:100vh}
 .app{padding:0 0 80px 0}
 .app-header{background:#1D9E75;color:#fff;padding:14px 16px 10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 .app-header h1{font-size:16px;font-weight:700}
 .app-header p{font-size:11px;opacity:.8;margin-top:1px}
-.tabs{display:flex;background:#fff;border-bottom:2px solid #1D9E75;overflow-x:auto;position:sticky;top:52px;z-index:99;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.tab{padding:10px 12px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:#fff;color:#666;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;flex-shrink:0}
+.tabs{display:flex;background:#1A1A1A;border-bottom:2px solid #1D9E75;overflow-x:auto;position:sticky;top:52px;z-index:99;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.tab{padding:10px 12px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:#1A1A1A;color:#888;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;flex-shrink:0}
 .tab.on{color:#0F6E56;border-bottom:3px solid #1D9E75}
 .scr{display:none;padding:14px 14px 0}.scr.active{display:block}
-.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:14px;margin-bottom:12px}
-.card.gb{border:2px solid #1D9E75;background:#F8FDFB}
+.card{background:#1E1E1E;border:1px solid #333;border-radius:12px;padding:14px;margin-bottom:12px}
+.card.gb{border:2px solid #1D9E75;background:#152820}
 .sec-lbl{font-size:11px;font-weight:700;color:#888;letter-spacing:.05em;margin-bottom:8px}
 .btn-g{background:#1D9E75;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;-webkit-appearance:none;display:inline-block}
 .btn-g:active{background:#0F6E56}
@@ -29,29 +29,29 @@ body{font-family:system-ui,-apple-system,sans-serif;padding:0;max-width:520px;ma
 .btn-danger{background:#fff;color:#a32d2d;border:2px solid #f09595;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer}
 .btn-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
 .btn-sm{padding:8px 14px !important;font-size:12px !important}
-.inp{width:100%;padding:9px 11px;border:1.5px solid #ccc;border-radius:8px;font-size:14px;background:#fff;color:#111;font-family:system-ui,sans-serif}
+.inp{width:100%;padding:9px 11px;border:1.5px solid #444;border-radius:8px;font-size:14px;background:#2A2A2A;color:#eee;font-family:system-ui,sans-serif}
 .inp:focus{outline:none;border-color:#1D9E75}
-.inp-sm{width:52px;padding:5px 3px;border:1.5px solid #ccc;border-radius:6px;font-size:13px;text-align:center;background:#fff;color:#111}
+.inp-sm{width:52px;padding:5px 3px;border:1.5px solid #444;border-radius:6px;font-size:13px;text-align:center;background:#2A2A2A;color:#eee}
 .inp-sm:focus{outline:none;border-color:#1D9E75}
 textarea.inp{resize:vertical;min-height:60px}
 .wk-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:12px}
-.wk{padding:8px 3px;text-align:center;border:1.5px solid #ccc;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;background:#fff;color:#888;-webkit-tap-highlight-color:transparent}
+.wk{padding:8px 3px;text-align:center;border:1.5px solid #444;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;background:#2A2A2A;color:#888;-webkit-tap-highlight-color:transparent}
 .wk.cur{background:#1D9E75;color:#fff;border-color:#1D9E75;box-shadow:0 2px 8px rgba(29,158,117,.35)}
 .wk.done{background:#C8EFE0;color:#0F6E56;border-color:#1D9E75}
 .wk.deload{background:#FCE8D0;color:#7C4700;border-color:#E6A840}
 .dtabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
-.dtab{flex:1;min-width:60px;padding:9px 4px;text-align:center;border:1.5px solid #ccc;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;background:#fff;color:#888;-webkit-tap-highlight-color:transparent}
+.dtab{flex:1;min-width:60px;padding:9px 4px;text-align:center;border:1.5px solid #444;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;background:#2A2A2A;color:#888;-webkit-tap-highlight-color:transparent}
 .dtab.cur{background:#1D9E75;color:#fff;border-color:#1D9E75}
 .mode-bar{padding:9px 13px;border-radius:8px;margin-bottom:12px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
 .mode-vol{background:#E8E6FC;color:#3C3489}
 .mode-myo{background:#C8EFE0;color:#0F6E56}
 .mode-prog{background:#DCEEFB;color:#0C447C}
 .mode-desc{background:#FCE8D0;color:#7C4700}
-.eje-card{border:2px solid #1D9E75;border-radius:12px;padding:14px;margin-bottom:12px;background:#F8FDFB}
-.ref-box{background:#E8F5EE;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:#444;line-height:1.6}
+.eje-card{border:2px solid #1D9E75;border-radius:12px;padding:14px;margin-bottom:12px;background:#152820}
+.ref-box{background:#1A2E22;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:#aaa;line-height:1.6}
 .ref-box b{color:#0F6E56}
 /* Series table for volumen mesociclo */
-.ex-block{border:1px solid #ddd;border-radius:10px;padding:12px;margin-bottom:8px;background:#fff}
+.ex-block{border:1px solid #333;border-radius:10px;padding:12px;margin-bottom:8px;background:#1E1E1E}
 .ex-name{font-size:14px;font-weight:700;margin-bottom:2px}
 .ex-sub{font-size:12px;color:#666;margin-bottom:8px}
 .series-rows{display:flex;flex-direction:column;gap:5px}
@@ -63,7 +63,7 @@ textarea.inp{resize:vertical;min-height:60px}
 .sr-status.fail{color:#E74C3C}
 .series-header{display:grid;grid-template-columns:40px 1fr 1fr 1fr 32px;gap:4px;margin-bottom:4px}
 .series-header span{font-size:10px;font-weight:700;color:#999;text-align:center}
-.peso-ini-row{display:flex;align-items:center;gap:8px;background:#E8F5EE;border-radius:8px;padding:7px 10px;margin-bottom:8px}
+.peso-ini-row{display:flex;align-items:center;gap:8px;background:#1A2E22;border-radius:8px;padding:7px 10px;margin-bottom:8px}
 .stbl{width:100%;border-collapse:collapse}
 .stbl th{font-size:11px;color:#777;font-weight:700;padding:5px 3px;text-align:center;border-bottom:1px solid #eee}
 .stbl td{padding:6px 3px;border-bottom:1px solid #f0f0f0;text-align:center;vertical-align:middle}
@@ -71,7 +71,7 @@ textarea.inp{resize:vertical;min-height:60px}
 .stbl tr.amrap td{background:#FFFBE6}
 .pct{font-size:12px;color:#777;font-weight:600}
 .tgt-kg{font-size:13px;font-weight:800;color:#1D9E75}
-.comp-card{border:1px solid #ddd;border-radius:10px;padding:12px;margin-bottom:8px;background:#fff}
+.comp-card{border:1px solid #333;border-radius:10px;padding:12px;margin-bottom:8px;background:#1E1E1E}
 .ex-toggle{display:flex;gap:4px;margin-bottom:8px}
 .ext{flex:1;padding:6px;text-align:center;border:1.5px solid #ccc;border-radius:7px;cursor:pointer;font-size:11px;font-weight:700;background:#eee;color:#666}
 .ext.t-myo{background:#C8EFE0;color:#0F6E56;border-color:#1D9E75}
@@ -80,15 +80,15 @@ textarea.inp{resize:vertical;min-height:60px}
 .s-box{text-align:center}
 .s-lbl{font-size:11px;color:#666;margin-bottom:3px;font-weight:700}
 .s-pair{display:flex;gap:3px}
-.s-in{flex:1;padding:5px 2px;text-align:center;font-size:12px;border:1.5px solid #ccc;border-radius:6px;background:#fff;color:#111;min-width:0}
+.s-in{flex:1;padding:5px 2px;text-align:center;font-size:12px;border:1.5px solid #444;border-radius:6px;background:#2A2A2A;color:#eee;min-width:0}
 .s-in:focus{outline:none;border-color:#1D9E75}
 .s-unit{font-size:10px;color:#888;margin-top:2px}
 .myo-box{text-align:center;padding:10px;border-radius:8px;font-size:13px;font-weight:700;margin-bottom:8px;min-height:42px;display:flex;align-items:center;justify-content:center}
-.myo-idle{background:#eee;color:#666}
+.myo-idle{background:#2A2A2A;color:#888}
 .myo-go{background:#C8EFE0;color:#0F6E56}
 .myo-chrono{font-size:52px;font-weight:800;text-align:center;color:#0F6E56;line-height:1;margin-bottom:6px}
 .dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
-.dot{width:26px;height:26px;border-radius:50%;border:2px solid #ccc;background:#eee}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid #444;background:#2A2A2A}
 .dot.ok{background:#1D9E75;border-color:#1D9E75}
 .mini-lbl{text-align:center;font-size:14px;font-weight:700;color:#333;margin-bottom:12px}
 .seq{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:12px}
@@ -106,30 +106,30 @@ textarea.inp{resize:vertical;min-height:60px}
 .circ-time{font-size:60px;font-weight:800;text-align:center;color:#0F6E56;line-height:1;margin-bottom:3px}
 .circ-round{text-align:center;font-size:12px;color:#777;margin-bottom:12px}
 .obs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}
-.obs-box{border:1px solid #ddd;border-radius:7px;padding:7px;text-align:center;background:#f9f9f9}
+.obs-box{border:1px solid #333;border-radius:7px;padding:7px;text-align:center;background:#252525}
 .obs-lbl{font-size:10px;color:#888;margin-bottom:3px;font-weight:700}
 .rest-big{font-size:56px;font-weight:800;text-align:center;color:#1D9E75;margin:6px 0 12px}
 .timer-big{font-size:56px;font-weight:800;text-align:center;color:#0F6E56;margin:6px 0 12px}
 .pills{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
-.pill{padding:6px 12px;border-radius:20px;font-size:12px;border:1.5px solid #bbb;cursor:pointer;background:#e8e8e8;color:#444;font-weight:600;-webkit-tap-highlight-color:transparent}
+.pill{padding:6px 12px;border-radius:20px;font-size:12px;border:1.5px solid #444;cursor:pointer;background:#2A2A2A;color:#aaa;font-weight:600;-webkit-tap-highlight-color:transparent}
 .pill.on{background:#1D9E75;color:#fff;border-color:#1D9E75}
 .badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
 .bg{background:#C8EFE0;color:#0F6E56}
 .by{background:#FCE8D0;color:#7C4700}
 .bb{background:#DCEEFB;color:#0C447C}
 .bv{background:#E8E6FC;color:#3C3489}
-.wu-item{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:13px;color:#555}
-.icobtn{padding:5px 8px;font-size:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f5f5f5;color:#555;-webkit-tap-highlight-color:transparent}
+.wu-item{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:13px;color:#aaa}
+.icobtn{padding:5px 8px;font-size:12px;border:1px solid #444;border-radius:6px;cursor:pointer;background:#2A2A2A;color:#aaa;-webkit-tap-highlight-color:transparent}
 .empty{text-align:center;padding:24px;color:#999;font-size:13px}
-.meso-card{border:1.5px solid #ddd;border-radius:12px;padding:12px;margin-bottom:8px;background:#fff}
-.meso-card.active{border-color:#1D9E75;background:#F8FDFB}
+.meso-card{border:1.5px solid #333;border-radius:12px;padding:12px;margin-bottom:8px;background:#1E1E1E}
+.meso-card.active{border-color:#1D9E75;background:#152820}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.stat-c{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px}
+.stat-c{background:#1E1E1E;border:1px solid #333;border-radius:10px;padding:12px}
 .stat-l{font-size:12px;color:#777;margin-bottom:3px}
 .stat-v{font-size:24px;font-weight:800;color:#111}
 .pb-bg{height:5px;background:#ddd;border-radius:3px;margin-top:5px}
 .pb-f{height:5px;background:#1D9E75;border-radius:3px}
-.peso-row{display:flex;align-items:center;gap:8px;background:#E8F5EE;border-radius:8px;padding:8px 12px;margin-bottom:10px}
+.peso-row{display:flex;align-items:center;gap:8px;background:#1A2E22;border-radius:8px;padding:8px 12px;margin-bottom:10px}
 /* Completion indicator */
 .comp-indicator{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;font-size:12px;font-weight:700;margin-top:8px}
 .comp-ok{background:#C8EFE0;color:#0F6E56}
@@ -139,11 +139,16 @@ textarea.inp{resize:vertical;min-height:60px}
 </head>
 <body>
 <div class="app">
-<div class="app-header">
-  <h1>💪 Gym Tracker</h1>
-  <p>Martin Brandán</p>
+<div class="app-header" style="display:flex;align-items:center;gap:12px">
+  <div style="width:42px;height:42px;background:#111;border-radius:50%;border:2px solid #F5C400;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+    <span style="font-size:16px;font-weight:900;color:#F5C400;letter-spacing:-1px">GM</span>
+  </div>
+  <div>
+    <h1 style="font-size:15px;font-weight:700">Gym Tracker</h1>
+    <p style="font-size:11px;opacity:.7">Martin Brandán · Gonzalo Mesías</p>
+  </div>
 </div>
-<div id="sync-bar" style="background:#fff;border-bottom:1px solid #ddd;padding:6px 16px;display:flex;align-items:center;justify-content:space-between;font-size:12px;">
+<div id="sync-bar" style="background:#1A1A1A;border-bottom:1px solid #333;padding:6px 16px;display:flex;align-items:center;justify-content:space-between;font-size:12px;">
   <span id="sync-status" style="color:#888">Conectando con Drive...</span>
   <button onclick="connectDrive()" style="padding:4px 10px;font-size:11px;font-weight:700;background:#1D9E75;color:#fff;border:none;border-radius:6px;cursor:pointer;">🔄 Reconectar</button>
 </div>
@@ -153,6 +158,7 @@ textarea.inp{resize:vertical;min-height:60px}
   <button class="tab" onclick="TAB('progreso')">Progreso</button>
   <button class="tab" onclick="TAB('timer')">Timer</button>
   <button class="tab" onclick="TAB('programas')">Programas</button>
+  <button class="tab" onclick="TAB('cuerpo')">Cuerpo</button>
 </div>
 
 <!-- SESION -->
@@ -195,12 +201,21 @@ textarea.inp{resize:vertical;min-height:60px}
 <div id="scr-timer" class="scr">
   <div class="card gb">
     <div class="sec-lbl">CIRCUITO 40x30</div>
-    <p style="font-size:12px;color:#555;margin-bottom:12px">Secuencia automática con audio · 2 rondas</p>
+    <p style="font-size:12px;color:#4CAF96;margin-bottom:10px">Secuencia automática · 2 rondas · audio</p>
+    <div style="margin-bottom:12px">
+      <div class="sec-lbl">EJERCICIO</div>
+      <select class="inp" id="circ-ex-sel" onchange="updCircExSel()" style="margin-bottom:8px"></select>
+      <div class="peso-row" style="margin-bottom:0">
+        <span style="font-size:13px;color:#555;flex:1">Peso</span>
+        <input class="inp-sm" type="number" placeholder="kg" id="circ-peso" style="width:70px">
+        <span style="font-size:12px;color:#777">kg</span>
+      </div>
+    </div>
     <div class="seq">
       <div class="sq t on" id="sq0">🏋️ Trabajo<br>40"</div>
       <div class="sq d" id="sq1">😮 Descanso<br>30"</div>
       <div class="sq t" id="sq2">🏋️ Trabajo<br>40"</div>
-      <div class="sq l" id="sq3">⏳ Entre rondas<br>2 min</div>
+      <div class="sq l" id="sq3">⏳ Entre rondas<br>1:30</div>
     </div>
     <div class="rds"><div class="rd on" id="rd0">1</div><div class="rd" id="rd1">2</div></div>
     <div class="circ-phase" id="cp">Presioná Iniciar</div>
@@ -210,16 +225,11 @@ textarea.inp{resize:vertical;min-height:60px}
       <button class="btn-g" id="circ-btn" onclick="toggleCirc()">▶ INICIAR</button>
       <button class="btn-o" onclick="resetCirc()">Reset</button>
     </div>
-    <div class="peso-row">
-      <span style="font-size:13px;color:#555;flex:1">Peso ejercicio</span>
-      <input class="inp-sm" type="number" placeholder="kg" id="circ-peso" style="width:70px">
-      <span style="font-size:12px;color:#777">kg</span>
-    </div>
-    <div class="sec-lbl">OBSERVACIONES POR RONDA</div>
-    <div class="obs-grid">
-      <div class="obs-box"><div class="obs-lbl">RONDA 1</div><input class="inp-sm" style="width:100%" type="text" placeholder="obs."></div>
-      <div class="obs-box"><div class="obs-lbl">RONDA 2</div><input class="inp-sm" style="width:100%" type="text" placeholder="obs."></div>
-      
+    <div id="circ-completado" style="display:none;padding:8px 12px;background:#C8EFE0;border-radius:8px;color:#0F6E56;font-weight:700;font-size:13px;margin-bottom:10px;text-align:center">✅ Circuito completado</div>
+    <div class="sec-lbl">OBSERVACIONES</div>
+    <div class="obs-grid" style="grid-template-columns:1fr 1fr">
+      <div class="obs-box"><div class="obs-lbl">RONDA 1</div><input class="inp-sm" style="width:100%" type="text" placeholder="obs." id="circ-obs1"></div>
+      <div class="obs-box"><div class="obs-lbl">RONDA 2</div><input class="inp-sm" style="width:100%" type="text" placeholder="obs." id="circ-obs2"></div>
     </div>
   </div>
   <div class="card gb">
@@ -258,6 +268,40 @@ textarea.inp{resize:vertical;min-height:60px}
   </div>
 </div>
 
+<!-- CUERPO -->
+<div id="scr-cuerpo" class="scr">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div class="sec-lbl" style="margin:0">MEDICIONES CORPORALES</div>
+      <button class="btn-g btn-sm" onclick="addMedicion()">+ Registrar</button>
+    </div>
+    <div style="font-size:12px;color:#888;margin-bottom:10px">Se registra al cierre de cada bloque de 3 semanas (S3 y S6)</div>
+    <div id="mediciones-list"></div>
+  </div>
+  <div class="card" id="medicion-form" style="display:none">
+    <div class="sec-lbl">NUEVO REGISTRO</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Peso (kg)</div><input class="inp" type="number" id="med-peso" placeholder="80"></div>
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Edad</div><input class="inp" type="number" id="med-edad" placeholder="30"></div>
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Brazo (cm)</div><input class="inp" type="number" id="med-brazo" placeholder="35"></div>
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Pecho (cm)</div><input class="inp" type="number" id="med-pecho" placeholder="100"></div>
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Cintura (cm)</div><input class="inp" type="number" id="med-cintura" placeholder="85"></div>
+      <div><div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Pierna (cm)</div><input class="inp" type="number" id="med-pierna" placeholder="55"></div>
+    </div>
+    <div style="margin-bottom:10px">
+      <div style="font-size:11px;color:#888;margin-bottom:3px;font-weight:700">Semana del mesociclo</div>
+      <select class="inp" id="med-semana">
+        <option value="3">Semana 3 (cierre bloque 1)</option>
+        <option value="6">Semana 6 (cierre bloque 2)</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button class="btn-g" style="flex:1" onclick="saveMedicion()">💾 Guardar</button>
+      <button class="btn-o" onclick="cancelMedicion()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <!-- PROGRAMAS -->
 <div id="scr-programas" class="scr">
   <div class="card">
@@ -281,12 +325,20 @@ textarea.inp{resize:vertical;min-height:60px}
 var actx=null;
 function AC(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx;}
 function beep(t){
-  try{var c=AC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);
-    if(t==='go'){o.frequency.value=880;g.gain.setValueAtTime(.4,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.15);o.start();o.stop(c.currentTime+.15);}
-    else if(t==='done'){o.frequency.value=523;g.gain.setValueAtTime(.4,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.2);o.start();o.stop(c.currentTime+.2);
-      var o2=c.createOscillator(),g2=c.createGain();o2.connect(g2);g2.connect(c.destination);o2.frequency.value=659;g2.gain.setValueAtTime(.4,c.currentTime+.25);g2.gain.exponentialRampToValueAtTime(.001,c.currentTime+.45);o2.start(c.currentTime+.25);o2.stop(c.currentTime+.45);}
-    else if(t==='warn'){o.frequency.value=660;g.gain.setValueAtTime(.15,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.08);o.start();o.stop(c.currentTime+.08);}
-    else if(t==='ding'){o.frequency.value=1046;g.gain.setValueAtTime(.3,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.1);o.start();o.stop(c.currentTime+.1);}
+  try{var c=AC();
+    function tone(freq,vol,start,dur){var o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=freq;g.gain.setValueAtTime(vol,c.currentTime+start);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+start+dur);o.start(c.currentTime+start);o.stop(c.currentTime+start+dur);}
+    if(t==='go'){
+      // 2 pitidos cortos agudos = arrancar
+      tone(1000,.5,0,.12);
+      tone(1000,.5,.2,.12);
+    }else if(t==='done'){
+      // 1 pitido largo fuerte = terminar
+      tone(440,.8,0,.6);
+    }else if(t==='warn'){
+      tone(660,.2,0,.08);
+    }else if(t==='ding'){
+      tone(1046,.3,0,.1);
+    }
   }catch(e){}
 }
 
@@ -444,9 +496,12 @@ function loadFromDrive(){
         try{
           var data=typeof r.result==='string'?JSON.parse(r.result):r.result;
           if(data.sessions&&data.mesocycles){
+            // Drive data wins — always overwrite local
             S=Object.assign({},S,data);
             try{localStorage.setItem('gym_martin_v8',JSON.stringify(S));}catch(e){}
+            // Force full re-render with Drive data
             renderHdr();renderWkGrid();renderDay();
+            if(document.getElementById('scr-historial').classList.contains('active'))renderHist();
             showSyncStatus('✅ Sincronizado con Drive','#1D9E75');
           }
         }catch(e){showSyncStatus('Error al leer datos','#E74C3C');}
@@ -547,6 +602,8 @@ function TAB(t){
   if(t==='historial')renderHist();
   if(t==='progreso'){renderStats();populateProgresoSelects();renderPChart();renderPctTbl();}
   if(t==='programas')renderMesoList();
+  if(t==='cuerpo')renderMediciones();
+  if(t==='timer')populateCircSelector();
   window.scrollTo(0,0);
 }
 
@@ -974,6 +1031,27 @@ function clearAll(){if(confirm('¿Borrar todas las sesiones registradas?')){S.se
 
 // -- CIRCUITO --
 var SEQ=[{lbl:'🏋️ Trabajo',si:0,sec:40},{lbl:'😮 Descanso',si:1,sec:30},{lbl:'🏋️ Trabajo',si:2,sec:40},{lbl:'⏳ Entre rondas',si:3,sec:90}];
+
+function updCircExSel(){
+  // Update peso field based on selected exercise (for reference)
+  document.getElementById('circ-peso').value='';
+}
+
+function populateCircSelector(){
+  var sel=document.getElementById('circ-ex-sel');if(!sel)return;
+  var m=M(),opts=[];
+  m.days.forEach(function(d){
+    (d.exercises||[]).forEach(function(ex){
+      if(ex.isCircuito)opts.push(ex.name);
+    });
+    (d.comps||[]).forEach(function(ex){
+      if(ex.isCircuito)opts.push(ex.name);
+    });
+  });
+  opts=[...new Set(opts)];
+  if(!opts.length)opts=['Circuito 40x30'];
+  sel.innerHTML=opts.map(function(n){return'<option value="'+n+'">'+n+'</option>';}).join('');
+}
 var cs=0,cr=0,csec=40,crun=false,cdone=false,cint=null;
 function toggleCirc(){
   if(cdone){resetCirc();return;}
@@ -981,12 +1059,19 @@ function toggleCirc(){
   beep('go');crun=true;document.getElementById('circ-btn').textContent='⏸ PAUSAR';
   cint=setInterval(function(){
     if(csec===3)beep('warn');
-    if(csec<=0){beep('done');cs++;if(cr>=1&&cs>=2){endCirc();return;}if(cs>=SEQ.length){cs=0;cr++;}csec=SEQ[cs].sec;beep('go');}else csec--;
+    if(csec<=0){
+      beep('done');cs++;
+      // Last round (cr=1 = round 2): skip "entre rondas" (step 3), end after step 2 (segundo trabajo)
+      if(cr>=1&&cs>=3){endCirc();return;}
+      // After completing all 4 steps of round 1, start round 2
+      if(cs>=SEQ.length){cs=0;cr++;}
+      csec=SEQ[cs].sec;beep('go');
+    }else csec--;
     updC();
   },1000);
 }
-function endCirc(){clearInterval(cint);crun=false;cdone=true;document.getElementById('circ-btn').textContent='✅ COMPLETADO';document.getElementById('cp').textContent='¡Completado!';document.getElementById('ct').textContent='0:00';updRds(3);}
-function resetCirc(){clearInterval(cint);crun=false;cdone=false;cs=0;cr=0;csec=SEQ[0].sec;document.getElementById('circ-btn').textContent='▶ INICIAR';document.getElementById('cp').textContent='Presioná Iniciar';updC();updRds(0);}
+function endCirc(){clearInterval(cint);crun=false;cdone=true;beep('done');document.getElementById('circ-btn').textContent='✅ COMPLETADO';document.getElementById('cp').textContent='¡Completado!';document.getElementById('ct').textContent='0:00';updRds(2);var cd=document.getElementById('circ-completado');if(cd)cd.style.display='block';}
+function resetCirc(){clearInterval(cint);crun=false;cdone=false;cs=0;cr=0;csec=SEQ[0].sec;document.getElementById('circ-btn').textContent='▶ INICIAR';document.getElementById('cp').textContent='Presioná Iniciar';var cd=document.getElementById('circ-completado');if(cd)cd.style.display='none';updC();updRds(0);}
 function updC(){var p=SEQ[cs],mm=Math.floor(csec/60),ss=csec%60;document.getElementById('ct').textContent=mm+':'+(ss<10?'0':'')+ss;document.getElementById('cp').textContent=p.lbl;document.getElementById('cr').textContent='Ronda '+(Math.min(cr+1,2))+' de 3';for(var i=0;i<4;i++){var e=document.getElementById('sq'+i);if(!e)continue;e.classList.remove('on','did');if(i===p.si)e.classList.add('on');else if(i<p.si)e.classList.add('did');}updRds(cr);}
 function updRds(done){for(var i=0;i<2;i++){var e=document.getElementById('rd'+i);if(!e)continue;e.classList.remove('on','ok');if(i<done)e.classList.add('ok');else if(i===done&&!cdone)e.classList.add('on');}}
 
@@ -1011,9 +1096,54 @@ var stI=null,stS=0,stRun=false;
 function toggleST(){stRun=!stRun;document.getElementById('st-btn').textContent=stRun?'⏸ PAUSAR':'▶ CONTINUAR';if(stRun){beep('go');stI=setInterval(function(){stS++;var h=Math.floor(stS/3600),mm=Math.floor((stS%3600)/60),ss=stS%60;document.getElementById('st-disp').textContent=(h?h+':':'')+(mm<10&&h?'0':'')+mm+':'+(ss<10?'0':'')+ss;},1000);}else clearInterval(stI);}
 function resetST(){clearInterval(stI);stS=0;stRun=false;document.getElementById('st-disp').textContent='00:00:00';document.getElementById('st-btn').textContent='▶ INICIAR';}
 
+
+// -- MEDICIONES CORPORALES --
+function addMedicion(){
+  document.getElementById('medicion-form').style.display='block';
+  document.getElementById('medicion-form').scrollIntoView({behavior:'smooth'});
+}
+function cancelMedicion(){document.getElementById('medicion-form').style.display='none';}
+function saveMedicion(){
+  var m={
+    fecha:new Date().toISOString(),
+    semana:parseInt(document.getElementById('med-semana').value),
+    peso:parseFloat(document.getElementById('med-peso').value)||0,
+    edad:parseInt(document.getElementById('med-edad').value)||0,
+    brazo:parseFloat(document.getElementById('med-brazo').value)||0,
+    pecho:parseFloat(document.getElementById('med-pecho').value)||0,
+    cintura:parseFloat(document.getElementById('med-cintura').value)||0,
+    pierna:parseFloat(document.getElementById('med-pierna').value)||0,
+    meso:S.am
+  };
+  if(!S.mediciones)S.mediciones=[];
+  S.mediciones.push(m);
+  persist();
+  document.getElementById('medicion-form').style.display='none';
+  renderMediciones();
+}
+function renderMediciones(){
+  var list=document.getElementById('mediciones-list');if(!list)return;
+  var meds=(S.mediciones||[]).filter(function(m){return m.meso===S.am;}).sort(function(a,b){return new Date(b.fecha)-new Date(a.fecha);});
+  if(!meds.length){list.innerHTML='<div class="empty">Sin mediciones registradas.<br>Registrá al cierre de S3 y S6.</div>';return;}
+  list.innerHTML=meds.map(function(m,idx){
+    var date=new Date(m.fecha).toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+    var prev=meds[idx+1];
+    function diff(val,prevVal){if(!prev||!prevVal||!val)return'';var d=val-prevVal;return d>0?'<span style="color:#1D9E75;font-size:10px">▲'+d.toFixed(1)+'</span>':'<span style="color:#E74C3C;font-size:10px">▼'+Math.abs(d).toFixed(1)+'</span>';}
+    return'<div style="border:1px solid #333;border-radius:10px;padding:12px;margin-bottom:8px;background:#1E1E1E">'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-weight:700;font-size:13px">Semana '+m.semana+'</span><span style="font-size:12px;color:#888">'+date+'</span></div>'
+      +'<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">'
+      +'<div style="text-align:center;background:#252525;border-radius:7px;padding:7px"><div style="font-size:10px;color:#888;margin-bottom:2px">PESO</div><div style="font-size:14px;font-weight:700">'+m.peso+'kg</div>'+diff(m.peso,prev&&prev.peso)+'</div>'
+      +'<div style="text-align:center;background:#252525;border-radius:7px;padding:7px"><div style="font-size:10px;color:#888;margin-bottom:2px">BRAZO</div><div style="font-size:14px;font-weight:700">'+m.brazo+'cm</div>'+diff(m.brazo,prev&&prev.brazo)+'</div>'
+      +'<div style="text-align:center;background:#252525;border-radius:7px;padding:7px"><div style="font-size:10px;color:#888;margin-bottom:2px">PECHO</div><div style="font-size:14px;font-weight:700">'+m.pecho+'cm</div>'+diff(m.pecho,prev&&prev.pecho)+'</div>'
+      +'<div style="text-align:center;background:#252525;border-radius:7px;padding:7px"><div style="font-size:10px;color:#888;margin-bottom:2px">CINTURA</div><div style="font-size:14px;font-weight:700">'+m.cintura+'cm</div>'+diff(m.cintura,prev&&prev.cintura)+'</div>'
+      +'<div style="text-align:center;background:#252525;border-radius:7px;padding:7px"><div style="font-size:10px;color:#888;margin-bottom:2px">PIERNA</div><div style="font-size:14px;font-weight:700">'+m.pierna+'cm</div>'+diff(m.pierna,prev&&prev.pierna)+'</div>'
+      +'</div></div>';
+  }).join('');
+}
+
 // -- INIT --
 load();
-renderHdr();renderWkGrid();renderDay();updC();updDots();updLbl();
+renderHdr();renderWkGrid();renderDay();updC();updDots();updLbl();populateCircSelector();
 
 // Poll for Google libraries and init them manually
 var _da=0;
